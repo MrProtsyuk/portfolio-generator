@@ -4,7 +4,15 @@ const promptUser = () => {
         {
         type: 'input',
         name: 'name',
-        message: 'What is your name?'
+        message: 'What is your name? (Required)',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter a Valid answer');
+                return false;
+            }
+            }
         },
         {
         type: 'input',
@@ -24,7 +32,7 @@ const promptProject = portfolioData => {
   if (!portfolioData.projects) {
     portfolioData.projects = [];
     }
-    
+
     console.log(`
   =================
   Add a New Project
